@@ -232,6 +232,10 @@ nav {
         grid-template-columns: repeat(2, 1fr);
         /* gap: 1rem; */
 
+        & a {
+            text-decoration: none;
+        }
+
         .box-content {
             height: 5.1rem;
             width: 100%;
