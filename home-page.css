@@ -2,6 +2,7 @@
 :root {
 
     --main-color: #0a557e;
+    --secondary-color: #c4c691;
 }
 
 html {
@@ -12,24 +13,27 @@ html {
 }
 
 .box-container {
-    --_box-height: 0.6rem;
-    --_box-border-width: 3px;
-    --_hover-height: calc(var(--_box-height) * 0.3);
+    /* box height */
+    --_bh: 0.6rem;
+    /* box border width */
+    --_bbw: 3px;
+    /* box hover height */
+    --_bhh: calc(var(--_bh) * 0.3);
 
     background-color: var(--main-color);
     border: solid var(--main-color);
     border-width: 
-        var(--_box-border-width)
-        var(--_box-border-width)
-        calc(var(--_box-height) + var(--_box-border-width))
-        calc(var(--_box-height) + var(--_box-border-width))
+        var(--_bbw)
+        var(--_bbw)
+        calc(var(--_bh) + var(--_bbw))
+        calc(var(--_bh) + var(--_bbw))
     ;
     clip-path: polygon(
-        0% var(--_box-height),
-        var(--_box-height) 0%,
+        0% var(--_bh),
+        var(--_bh) 0%,
         100% 0%,
-        100% calc(100% - var(--_box-height)),
-        calc(100% - var(--_box-height)) 100%,
+        100% calc(100% - var(--_bh)),
+        calc(100% - var(--_bh)) 100%,
         0% 100%
     );
 
@@ -45,56 +49,67 @@ html {
     
         &:hover {
             clip-path: polygon(
-                0% var(--_box-height),
-                calc(var(--_box-height) - var(--_hover-height)) var(--_hover-height),
-                calc(100% - var(--_hover-height)) var(--_hover-height),
-                calc(100% - var(--_hover-height)) calc(100% - var(--_box-height) + var(--_hover-height)),
-                calc(100% - var(--_box-height)) 100%,
+                0% var(--_bh),
+                calc(var(--_bh) - var(--_bhh)) var(--_bhh),
+                calc(100% - var(--_bhh)) var(--_bhh),
+                calc(100% - var(--_bhh)) calc(100% - var(--_bh) + var(--_bhh)),
+                calc(100% - var(--_bh)) 100%,
                 0% 100%
             );
 
             .box-content {
-                translate: calc(var(--_hover-height) * -1) var(--_hover-height);
+                translate: calc(var(--_bhh) * -1) var(--_bhh);
             }
         }
         
         &:active {
-            --_hover-height: calc(var(--_box-height) * 0.6);
+            --_bhh: calc(var(--_bh) * 0.6);
             clip-path: polygon(
-                0% var(--_box-height),
-                calc(var(--_box-height) - var(--_hover-height)) var(--_hover-height),
-                calc(100% - var(--_hover-height)) var(--_hover-height),
-                calc(100% - var(--_hover-height)) calc(100% - var(--_box-height) + var(--_hover-height)),
-                calc(100% - var(--_box-height)) 100%,
+                0% var(--_bh),
+                calc(var(--_bh) - var(--_bhh)) var(--_bhh),
+                calc(100% - var(--_bhh)) var(--_bhh),
+                calc(100% - var(--_bhh)) calc(100% - var(--_bh) + var(--_bhh)),
+                calc(100% - var(--_bh)) 100%,
                 0% 100%
             );
 
             .box-content {
-                translate: calc(var(--_hover-height) * -1) var(--_hover-height);
+                translate: calc(var(--_bhh) * -1) var(--_bhh);
             }
         }
     }
 }
 
+
+/* home */
 .home {
-    --_border-width: 3px;
-    --_box-height: 0.6rem;
-    --_section-home-padding: 2rem;
+    --_home-bh: 0.6rem;
+    --_home-bbw: 3px;
+
+    --_bh: var(--_home-bh);
+    --_bbw: var(--_home-bbw);
+    --_home-section-padding: 2rem;
 
     position: relative;
-    padding: var(--_section-home-padding);
-    width: 100dvw;
+    padding: var(--_home-section-padding);
+    width: 100%;
     height: 100dvh;
+
+    .box-container {
+        --_bh: var(--_home-bh);
+        --_bbw: var(--_home-bbw);
+        --_bhh: calc(var(--_bh) * 0.3);
+    }
 }
 
 nav {
-    translate: 0 calc(var(--box-height) + var(--border-width));
+    translate: 0 calc(var(--_bh) + var(--_bbw));
 
     display: grid;
     justify-items: start;
 
     .box-container {
-        margin-top: calc((var(--box-height) + var(--border-width)) * -1);
+        margin-top: calc((var(--_bh) + var(--_bbw)) * -1);
     }
 
     .box-content {
@@ -129,8 +144,8 @@ nav {
 
 .time-and-theme {
     position: absolute;
-    top: var(--_section-home-padding);
-    right: var(--_section-home-padding);
+    top: var(--_home-section-padding);
+    right: var(--_home-section-padding);
     
     display: flex;
     align-items: center;
@@ -138,7 +153,7 @@ nav {
 
     .time-container {
         font-size: 1.5rem;
-        margin-top: calc(var(--box-height) / 2);
+        margin-top: calc(var(--_bh) / 2);
 
         display: flex;
         flex-direction: column;
@@ -173,11 +188,10 @@ nav {
 
 .recent-news, .recent-publications {
     position: absolute;
-    bottom: var(--_section-home-padding);
-    width: 40dvw;
+    bottom: var(--_home-section-padding);
     
     .box-container {
-        margin-top: calc((var(--box-height) + var(--border-width)) * -1);
+        margin-top: calc((var(--_bh) + var(--_bbw)) * -1);
     }
 
     .home-title {
@@ -187,7 +201,8 @@ nav {
 }
 
 .recent-news {
-    left: var(--_section-home-padding);
+    left: var(--_home-section-padding);
+    width: 40dvw;
 
     display: flex;
     flex-direction: column;
@@ -229,12 +244,15 @@ nav {
 }
 
 .recent-publications {
-    right: calc(var(--_section-home-padding) + var(--box-height) + var(--border-width));
+    right: calc(var(--_home-section-padding) + var(--_bh) + var(--_bbw));
+    width: calc(40dvw - var(--_bh));
 
     display: grid;
     justify-items: start;
 
     .recent-publications-container {
+        z-index: 2;
+
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         /* gap: 1rem; */
@@ -256,21 +274,18 @@ nav {
                     /* line-clamp: 3; */
             -webkit-box-orient: vertical;
         }
+
+        & .box-container:first-child {
+            z-index: 3;
+        }
     }
 
     .box-container {
-        /* height: 3rem; */
-        margin-right: calc((var(--box-height) + var(--border-width)) * -1);
-
-        &:first-child {
-            z-index: 1;
-        }
+        margin-right: calc((var(--_bh) + var(--_bbw)) * -1);
     }
 
     .home-content {
         padding: 0.75rem;
-        /* overflow: hidden; */
-
     }
 }
 
@@ -285,7 +300,7 @@ nav {
 
 .scroll-down {
     position: absolute;
-    bottom: var(--_section-home-padding);
+    bottom: var(--_home-section-padding);
     left: 50%;
     translate: -50% 0;
     cursor: pointer;
@@ -317,8 +332,90 @@ nav {
 
 }
 
+
+/* people */
 .people {
-    & img {
+    padding: 0 2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    
+    & h2 {
+        position: relative;
+        font-size: 2rem;
+        font-weight: 500;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 1rem;
+            height: 0.4rem;
+            background-color: var(--secondary-color);
+            margin-left: 0.4rem;
+            translate: 0 -50%;
+        }
+    }
+
+    .box-container {
+        --_bh: 0.8rem;
+        --_bbw: 0px;
+        --_bhh: calc(var(--_bh) * 0.3);
+    }
+}
+
+.people-block {
+    margin-block-start: 1rem;
+}
+
+.people-section[PI] {
+    .people-block {
+        display: flex;
+        align-items: flex-end;
+        gap: 1.5rem;
+    }
+
+    .box-container {
+        width: 20rem;
+    }
+
+    .people-name {
+        font-size: 2.5rem;
+    }
+
+    & p {
+        font-size: 1.5rem;
+        margin-block-start: 1rem;
+    }
+
+    & span {
+        translate: 0 0.2rem;
+        margin-inline-end: 0.3rem;
+    }
+    
+}
+
+.people-section[GS] {
+    .people-block {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .box-container {
         width: 12rem;
     }
+
+    .people-name {
+        font-size: 1.5rem;
+    }
+}
+
+.people-block-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    gap: 3rem;
 }

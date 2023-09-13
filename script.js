@@ -32,5 +32,9 @@ const tickerItemCopy = document.querySelectorAll('.ticker-item-copy');
 const tickerMargin = window.getComputedStyle(tickerItem[0]).marginRight;
 const tickerItemsWidth = tickerItem[0].offsetWidth + tickerItem[1].offsetWidth + parseInt(tickerMargin) * 2;
 
-const tickerMovingPerSecond = 50;
+const tickerMovingPerSecond = 35;
 tickerBundle.style.animationDuration = `${tickerItemsWidth / tickerMovingPerSecond}s`;
+
+const scrollBarWidth = window.innerWidth - document.body.offsetWidth
+console.log(scrollBarWidth);
+console.log(window.innerWidth, document.body.offsetWidth);
