@@ -1,7 +1,6 @@
 
 :root {
-    --border-width: 3px;
-    --box-height: 0.6rem;
+
     --main-color: #0a557e;
 }
 
@@ -13,67 +12,75 @@ html {
 }
 
 .box-container {
-    --_hover-height: calc(var(--box-height) * 0.3);
+    --_box-height: 0.6rem;
+    --_box-border-width: 3px;
+    --_hover-height: calc(var(--_box-height) * 0.3);
 
     background-color: var(--main-color);
     border: solid var(--main-color);
     border-width: 
-        var(--border-width)
-        var(--border-width)
-        calc(var(--box-height) + var(--border-width))
-        calc(var(--box-height) + var(--border-width))
+        var(--_box-border-width)
+        var(--_box-border-width)
+        calc(var(--_box-height) + var(--_box-border-width))
+        calc(var(--_box-height) + var(--_box-border-width))
     ;
     clip-path: polygon(
-        0% var(--box-height),
-        var(--box-height) 0%,
+        0% var(--_box-height),
+        var(--_box-height) 0%,
         100% 0%,
-        100% calc(100% - var(--box-height)),
-        calc(100% - var(--box-height)) 100%,
+        100% calc(100% - var(--_box-height)),
+        calc(100% - var(--_box-height)) 100%,
         0% 100%
     );
-    transition: .15s;
-    cursor: pointer;
-    user-select: none;
-    
-    .box-content {
-        background-color: white;
+
+    &[hoverable]{
         transition: .15s;
-    }
-    
-    &:hover {
-        clip-path: polygon(
-            0% var(--box-height),
-            calc(var(--box-height) - var(--_hover-height)) var(--_hover-height),
-            calc(100% - var(--_hover-height)) var(--_hover-height),
-            calc(100% - var(--_hover-height)) calc(100% - var(--box-height) + var(--_hover-height)),
-            calc(100% - var(--box-height)) 100%,
-            0% 100%
-        );
-
+        cursor: pointer;
+        user-select: none;
+        
         .box-content {
-            translate: calc(var(--_hover-height) * -1) var(--_hover-height);
+            background-color: white;
+            transition: .15s;
         }
-    }
     
-    &:active {
-        --_hover-height: calc(var(--box-height) * 0.6);
-        clip-path: polygon(
-            0% var(--box-height),
-            calc(var(--box-height) - var(--_hover-height)) var(--_hover-height),
-            calc(100% - var(--_hover-height)) var(--_hover-height),
-            calc(100% - var(--_hover-height)) calc(100% - var(--box-height) + var(--_hover-height)),
-            calc(100% - var(--box-height)) 100%,
-            0% 100%
-        );
+        &:hover {
+            clip-path: polygon(
+                0% var(--_box-height),
+                calc(var(--_box-height) - var(--_hover-height)) var(--_hover-height),
+                calc(100% - var(--_hover-height)) var(--_hover-height),
+                calc(100% - var(--_hover-height)) calc(100% - var(--_box-height) + var(--_hover-height)),
+                calc(100% - var(--_box-height)) 100%,
+                0% 100%
+            );
 
-        .box-content {
-            translate: calc(var(--_hover-height) * -1) var(--_hover-height);
+            .box-content {
+                translate: calc(var(--_hover-height) * -1) var(--_hover-height);
+            }
+        }
+        
+        &:active {
+            --_hover-height: calc(var(--_box-height) * 0.6);
+            clip-path: polygon(
+                0% var(--_box-height),
+                calc(var(--_box-height) - var(--_hover-height)) var(--_hover-height),
+                calc(100% - var(--_hover-height)) var(--_hover-height),
+                calc(100% - var(--_hover-height)) calc(100% - var(--_box-height) + var(--_hover-height)),
+                calc(100% - var(--_box-height)) 100%,
+                0% 100%
+            );
+
+            .box-content {
+                translate: calc(var(--_hover-height) * -1) var(--_hover-height);
+            }
         }
     }
 }
 
 .home {
+    --_border-width: 3px;
+    --_box-height: 0.6rem;
     --_section-home-padding: 2rem;
+
     position: relative;
     padding: var(--_section-home-padding);
     width: 100dvw;
@@ -308,4 +315,10 @@ nav {
         }
     }
 
+}
+
+.people {
+    & img {
+        width: 12rem;
+    }
 }

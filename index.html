@@ -4,16 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E3 Group, NTU.</title>
-    <link rel="stylesheet" href="assets/general.css">
-    <link rel="stylesheet" href="assets/home-page.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="home-page.css">
+
+    <!-- js -->
+    <script defer src="assets/script.js"></script>
+
+    <!-- google fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <section class="home">
         <nav>
-            <a class="box-container">
+            <a class="box-container" hoverable>
                 <div class="box-content nav-home">
-                    <img src="assets/e3-logo.svg" alt="logo" class="logo">
+                    <img src="assets/icons/e3-logo.svg" alt="logo" class="logo">
                     <div>
                         <h1>E3 Research Group</h1>
                         <span>Energy &times; Environment &times; Economics</span>
@@ -45,18 +52,18 @@
                 <span class="time">AM 09:41:59</span>
                 (UTC+8)
             </div>
-            <button type="button" class="toggle-theme box-container">
+            <button type="button" class="toggle-theme box-container" hoverable>
                 <div class="box-content">
-                    <img src="assets/light-theme.svg" alt="Light theme">
+                    <img src="assets/icons/light-theme.svg" alt="Light theme">
                 </div>
             </button>
         </div>
 
         <div class="recent-news">
-            <div class="box-container">
+            <div class="box-container" hoverable>
                 <div class="home-title box-content">Recent News</div>
             </div>
-            <div class="box-container">
+            <div class="box-container" hoverable>
                 <div class="home-content box-content">
                     <div class="ticker-wrap">
                         <div class="ticker-bundle">
@@ -93,18 +100,18 @@
         </div>
 
         <div class="recent-publications">
-            <div class="box-container">
+            <div class="box-container" hoverable>
                 <div class="home-title box-content">Recent Publications</div>
             </div>
             <div class="recent-publications-container">
-                <a href="#" class="box-container">
+                <a href="#" class="box-container" hoverable>
                     <div class="home-content box-content">
                         <p>
                             Transitioning from illegal rooftop dwellings to solar PV: Market-based incentive design and techno-economic analysis
                         </p>
                     </div>
                 </a>
-                <a href="#" class="box-container">
+                <a href="#" class="box-container" hoverable>
                     <div class="home-content box-content">
                         <p>
                             Impacts of electric fleet charging patterns under different solar power penetration levels: Hourly grid variations and operating emissions
@@ -124,7 +131,42 @@
         
     </section>
 
+    <section class="people">
+        <div class="people-section">
+            <h2>Principal Investigator</h2>
+            <div class="people-block" type="pi">
+                <div class="box-container">
+                    <div class="box-content">
+                        <img src="assets/people/Lisa.jpg" alt="Lisa Hsieh">
+                    </div>
+                </div>
+
+                <div class="people-info">
+                    <div class="people-name">
+                        <div class="people-name-ch">謝依芸</div>
+                        <div class="people-name-en">I-Yun Lisa Hsieh Ph.D</div>
+                    </div>
+
+                    <div>
+                        Department of Civil Engineering<br>
+                        Department of Chemical Engineering (Joint Appointment)<br>
+                        National Taiwan University<br>
+                        <a href="mailto:iyunhsieh@ntu.edu.tw">
+                            <span class="material-symbols-sharp">mail</span>
+                            iyunhsieh@ntu.edu.tw
+                        </a><br>
+                        <span class="material-symbols-sharp">call</span>+886-2-3366-4259<br>
+                        <span class="material-symbols-sharp">location_on</span>CERB 601
+                        
+                    </div>
+                </div>
+                
+
+                
+            </div>
+        </div>
+    </section>
+
 </body>
 
-<script src="assets/script.js"></script>
 </html>
