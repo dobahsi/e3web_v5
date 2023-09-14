@@ -102,6 +102,15 @@ html {
     }
 }
 
+.home-picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 60%;
+    /* border: 2px solid black; */
+}
+
 nav {
     translate: 0 calc(var(--_bh) + var(--_bbw));
 
@@ -287,15 +296,6 @@ nav {
     .home-content {
         padding: 0.75rem;
     }
-}
-
-.home-picture {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    width: 60%;
-    /* border: 2px solid black; */
 }
 
 .scroll-down {
