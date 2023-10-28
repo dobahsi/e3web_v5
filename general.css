@@ -62,9 +62,9 @@ a:hover {
     font-family: 'Outfit', 'Noto Sans TC', sans-serif;
 }
 
-a[target="_blank"]:after {
+/* a[target="_blank"]:after {
     content: '';
-    background-image: url('/assets/external-link.svg');
+    background-image: url('/assets/icons/external-link.svg');
     background-repeat: no-repeat;
     background-size: cover;
     display: inline-block;
@@ -72,5 +72,13 @@ a[target="_blank"]:after {
     height: 0.7em;
     width: 0.7em;
     margin: 0 0.1em 0 0.1em;
+} */
+
+[fw400] {
+    font-weight: 400;
+}
+
+[fw500] {
+    font-weight: 500;
 }
 
